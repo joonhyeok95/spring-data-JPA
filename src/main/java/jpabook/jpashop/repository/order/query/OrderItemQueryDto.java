@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class OrderItemQueryDto {
 
 	@JsonIgnore
@@ -16,4 +15,10 @@ public class OrderItemQueryDto {
 	private int orderPrice;
 	private int count;
 	
+    public OrderItemQueryDto(Long orderId, String itemName, int orderPrice, int count) {
+        this.orderId = orderId;
+        this.itemName = itemName;
+        this.orderPrice = orderPrice;
+        this.count = count;
+    }
 }
