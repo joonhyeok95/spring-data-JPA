@@ -18,8 +18,8 @@ public class JpashopApplication {
 //		
 		SpringApplication.run(JpashopApplication.class, args);
 	}
-//	@Bean
-//	Hibernate5JakartaModule hibernate5JakartaModule() {
-//		return new Hibernate5JakartaModule();
-//	}
+	@Bean
+	Hibernate5JakartaModule hibernate5JakartaModule() {
+		return new Hibernate5JakartaModule();
+	}
 }
