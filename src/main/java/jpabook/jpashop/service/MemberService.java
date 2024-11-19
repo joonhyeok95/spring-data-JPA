@@ -33,7 +33,7 @@ public class MemberService {
     }
 
     private void validateDuplidateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByNames(member.getName());
+        List<Member> findMembers = memberRepository.findByName(member.getName());
         if (!findMembers.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
@@ -47,12 +47,12 @@ public class MemberService {
 
     // 회원 단일 조회
     public Member findMember(Long id) {
-        return memberRepository.findOne(id);
+        return memberRepository.findById(id).get();
     }
 
     @Transactional
     public void update(Long id, String name) {
-        Member member = memberRepository.findOne(id);
+        Member member = memberRepository.findById(id).get();
         member.setName(name);
     }
 

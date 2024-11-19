@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import jakarta.transaction.Transactional;
 import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.repository.MemberRepository;
+import jpabook.jpashop.repository.MemberRepositoryOld;
 import jpabook.jpashop.service.MemberService;
 
 
@@ -26,7 +26,7 @@ public class MemberServiceTest {
     @Autowired
     MemberService memberService; // 다른애들이 참조할게 없으니 간단하게 주입
     @Autowired
-    MemberRepository memberRepository;
+    MemberRepositoryOld memberRepository;
 
     // @Autowired EntityManager em; // 실제 db 반영 case 2
     @Test
