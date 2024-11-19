@@ -2,11 +2,10 @@ package jpabook.jpashop.repository.order.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class OrderItemQueryDto {
+public class OrderItemQueryDto {	
 
 	@JsonIgnore
 	private Long orderId;
