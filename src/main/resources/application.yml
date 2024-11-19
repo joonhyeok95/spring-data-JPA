@@ -16,7 +16,8 @@ spring:
         show_sql: true
         use_sql_comment: true
         hightlight_sql: true
-        default_batch_fetch_size: 100 # 
+        default_batch_fetch_size: 100 #
+    open-in-view: false # OSIV 성능최적화편
 #logging:
 #  level:
 #    org.hibernate.SQL: DEBUG
