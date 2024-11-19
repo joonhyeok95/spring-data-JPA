@@ -5,12 +5,21 @@ import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * ... Description ...
+ * 
+ * @author joonhyeok.lim
+ * @email dkttkemf@gmail.com
+ * @since 2024. 11. 19.
+ * @version
+ */
 @Entity
 @Getter
-@Setter@DiscriminatorValue("A")
+@Setter
+@DiscriminatorValue("A")
 public class Album extends Item {
 
-	private String artist;
-	private String etc;
-	
+    private String artist;
+    private String etc;
+
 }

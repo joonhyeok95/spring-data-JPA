@@ -2,7 +2,6 @@ package jpabook.jpashop.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,34 +16,42 @@ import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * ... Description ...
+ * 
+ * @author joonhyeok.lim
+ * @email dkttkemf@gmail.com
+ * @since 2024. 11. 19.
+ * @version
+ */
 @Entity
 @Getter
 @Setter
 public class Category {
-	
-	@Id @GeneratedValue
-	@Column(name = "category_id")
-	private Long id;
-	
-	private String name;
-	
-	@ManyToMany // 다대다 관계는 RDBS에서 불가하나 테스트용
-	@JoinTable(name = "category_item",
-				joinColumns = @JoinColumn(name = "category_id"),
-				inverseJoinColumns = @JoinColumn(name = "item_id"))
-	private List<Item> items = new ArrayList<>();
-	
-	// 부모 자식 설계
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_id")
-	private Category parent;
-	
-	@OneToMany(mappedBy = "parent")
-	private List<Category> child = new ArrayList<>();
-	
-	// 연관관계 메서드
-	public void addChildCategory(Category child) {
-		this.child.add(child);
-		child.setParent(this);
-	}
+
+    @Id
+    @GeneratedValue
+    @Column(name = "category_id")
+    private Long id;
+
+    private String name;
+
+    @ManyToMany // 다대다 관계는 RDBS에서 불가하나 테스트용
+    @JoinTable(name = "category_item", joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private List<Item> items = new ArrayList<>();
+
+    // 부모 자식 설계
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Category parent;
+
+    @OneToMany(mappedBy = "parent")
+    private List<Category> child = new ArrayList<>();
+
+    // 연관관계 메서드
+    public void addChildCategory(Category child) {
+        this.child.add(child);
+        child.setParent(this);
+    }
 }
